@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html manifest="longshot.appcache">
+<head>
+	<title>Longshot</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content = "width = 640, initial-scale = 0.5, user-scalable = no">
+	<meta charset="utf-8">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon.png">
+	<!--<script type="text/javascript" src="js/jquery.js"></script>-->
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+	<link rel="stylesheet" type="text/css" href="stylesheets/screen.css">
+</head>
+	
+<body onload="init();">
+	<div id="container">
+		<h1 id="logotype">Longshot</h1>
+		<div id="shotContainer">
+				<a id="shotImageLink" href="" alt="Open shot on Dribbble">	
+					<div id="shotImage"></div>
+				</a>
+			<hgroup>
+				<h1 id="shotTitle"></h1>
+				<h2 id="shotPlayer"></h2>
+				<h3 id="shotID"></h3>
+			</hgroup>
+			<section id="shotComments">
+			</section>
+		</div>
+		<nav id="buttonbar">
+			<div id="toggleShotCommentsButton" onclick="toggleShotComments();"></div>
+			<img id="getShotButton" onclick="getShot();" src="img/dribbble_ball_1024.png">
+		</nav>		
+	</div>
+</body>
+</html>

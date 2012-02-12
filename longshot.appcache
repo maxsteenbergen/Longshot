@@ -1,0 +1,16 @@
+CACHE MANIFEST
+
+# Offline cache v1
+# html files
+index.html
+
+# css files
+stylesheets/screen.css
+
+# js files
+js/jquery.js
+js/functions.js
+
+# images
+img/floorBG.png
+img/dribbble_ball_1024.png
