@@ -1,0 +1,25 @@
+@-webkit-keyframes 'dropInLogotype' {
+	0% 		{-webkit-transform-origin: 100% 100%; -webkit-transform: translate3d(0,0,0) rotate(30deg); }
+	30% 	{-webkit-transform: translate3d(0,220px,0)  rotate(30deg);}
+	35% 	{-webkit-transform: translate3d(0,220px,0)  rotate(0deg);}
+	45%		{-webkit-transform-origin: 0% 100%; -webkit-transform: translate3d(0,220px,0)  rotate(-10deg);}
+	50% 	{-webkit-transform: translate3d(0,220px,0)  rotate(0deg);}
+	55% 	{-webkit-transform-origin: 100% 100%; -webkit-transform: translate3d(0,220px,0)  rotate(5deg);}
+	60% 	{-webkit-transform: translate3d(0,220px,0)  rotate(0deg);}
+	100% 	{-webkit-transform: translate3d(0,220px,0)  rotate(0deg);}
+}
+
+@-webkit-keyframes 'smoke' {
+	0% 		{-webkit-transform: translate3d(0,0,0) scaleY(0); opacity: 1;}
+	100% 	{-webkit-transform: translate3d(0,-150px,0) scaleY(2); opacity: 0;}
+}
+
+@-webkit-keyframes 'bounceInBall' {
+	0% 		{-webkit-transform: translate3d(0,5px,0) rotate(0deg); }
+	100% 	{-webkit-transform: translate3d(75%,5px,0) rotate(720deg);}
+}
+
+@-webkit-keyframes 'pullUpInstruction' {
+	0% 		{-webkit-transform: translate3d(0,0,0); opacity: 0;}
+	100% 	{-webkit-transform: translate3d(0,-500px,0); opacity: 1;}
+}

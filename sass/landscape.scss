@@ -7,10 +7,10 @@
 @import "compass/typography/links/link-colors";
 @import "compass/utilities";
 @import "globals";
-@import "animations";
+@import "animations_landscape";
 
-$deviceHeight: 920px;
-$deviceWidth: 640px;
+$deviceHeight: 600px;
+$deviceWidth: 960px;
 
 body{
 	width: $deviceWidth;
@@ -18,110 +18,20 @@ body{
 	max-width: $deviceWidth;
 	max-height: $deviceHeight;
 	overflow: hidden;
-	
+
 	#container{
 		//display: none;
 		width: $deviceWidth;
 		height: $deviceHeight;
-		max-width: $deviceWidth;
 		max-height: $deviceHeight;
 		overflow: hidden;
 
 		#background_top{
-			z-index: 2;
-			position: absolute;
-			top: 0px;
-			left: 0;
+			opacity: 0;
 		}
 
 		#background_bottom{
-			z-index: 1;
-			width: 640px;
-			height: 420px;
-			overflow-y: hidden;
-			position: absolute;
-			top: 500px;
-			left: 0;
-			@include box-shadow(#ffbb7f 0 -1px 0,  rgba(0,0,0,0.5) 0 -10px 10px);
-			-webkit-animation-duration: 0.3s;
-			@include animationSettings;
-		}
-
-		#shotContainer{
-			-webkit-animation-duration: 0.3s;
-			@include animationSettings;
-			position: static;
-			z-index: 1;
-		}
-
-		#logoType{
-			position: absolute;
-			z-index: 5;
-			top: 25px;
-			left: 50%;
-			width: $deviceWidth;
-			margin-left: -($deviceWidth/2);
-			font-family: Ballpark;
-			//width: $deviceWidth;
-			text-align: center;
-			font-size: 65px;
-			color: lighten($dribbblePink, 5%);
-			@include text-shadow(	rgba(0,0,0,0.5) 0 6px 5px, 
-									lighten($dribbblePink, 25%) 0 -1px 0,
-									darken($dribbblePink, 25%) 0 -2px 0,
-									darken($dribbblePink, 25%) 0 -3px 0,
-									darken($dribbblePink, 25%) 0 -4px 0);
-		}
-
-		#spinner{
-			position: absolute;
-			z-index: 3;
-			top: 200px;
-			left: 50%;
-			margin-left:-42px;
-			-webkit-animation-name: rotate;
-			-webkit-animation-duration: 1s;
-			@include animationSettings;
-			-webkit-animation-iteration-count: infinite; 
-		}
-
-		#shotImage{
-			@include box-shadow($imgDropShadow, $imgBorder);
-			position: absolute;
-			z-index: 3;
-			left: 50%;
-			margin-top: 90px;
-			border-radius: 5px;
-			-webkit-animation-duration: 0.5s;
-			@include animationSettings;
-			}
-
-		hgroup{
-			z-index: 3;
-			width: 600px;
-			max-width: 600px;
-			text-overflow: ellipsis;
-			padding-left: 20px;
-			padding-right: 20px;
-			text-align: center;
-			color: #fff;
-			font-family: Helvetica, Arial, "Lucida Grande", Verdana, sans-serif;
-			font-size: 35px;
-			position: absolute;
-			top: 405px;
-			-webkit-animation-duration: 0.3s;
-			@include animationSettings;
-			@include text-shadow(rgba(0,0,0,0.5) 0 3px 3px);
-			#shotTitle{
-				font-weight: bold;
-				@include animationSettings;
-			}
-			#shotPlayer{
-				margin-top: 5px;
-				font-size:25px;
-				-webkit-animation-duration: 1s;
-				@include animationSettings;
-			}
+			opacity: 0;
 		}
 
 		#tweetButton{
@@ -133,8 +43,8 @@ body{
 			width: 128px;
 			position: absolute;
 			z-index: 5;
-			bottom: 220px;
-			left: 150px;
+			bottom: 350px;
+			left: 75px;
 			-webkit-animation-duration: 0.3s;
 			@include animationSettings;
 			}
@@ -148,17 +58,98 @@ body{
 			width: 128px;
 			position: absolute;
 			z-index: 5;
-			bottom: 220px;
-			right: 150px;
+			bottom: 350px;
+			right: 75px;
 			overflow: hidden;
 			-webkit-animation-duration: 0.3s;
 			@include animationSettings;
 		}
 
+		#shotContainer{
+			//height: $deviceHeight;
+			//max-height: $deviceHeight;
+			overflow-y: hidden;
+			-webkit-animation-duration: 0.25s;
+			@include animationSettings;
+		}
+
+		#logoType{
+			display: none;
+		}
+
+		#imageContainer{
+			position: absolute;
+			z-index: 4;
+			max-height: $deviceHeight;
+			max-width: $deviceWidth;
+			overflow-y: hidden;
+			background-image: url("../img/floorBG.png");
+			background-repeat: repeat-x;
+			-webkit-animation-duration: 0.25s;
+			@include animationSettings;
+		}
+
+		#shotImageLink{
+	 		
+			#spinner{
+				position: absolute;
+				z-index: 3;
+				top: 130px;
+				left: 50%;
+				margin-left:-42px;
+				-webkit-animation-name: rotate;
+				-webkit-animation-duration: 1s;
+				@include animationSettings;
+				-webkit-animation-iteration-count: infinite; 
+			}
+
+			#shotImage{
+				//display: none;
+				@include box-shadow($imgDropShadow, $imgBorder);
+				position: absolute;
+				z-index: 4;
+				left: 50%;
+				top: -75px;
+				border-radius: 5px;
+				-webkit-animation-duration: 0.5s;
+				@include animationSettings;
+			}
+		}
+
+		hgroup{
+			z-index: 3;
+			width: $deviceWidth;
+			//padding-left: 20px;
+			//padding-right: 20px;
+			text-align: center;
+			color: #fff;
+			font-family: Helvetica, Arial, "Lucida Grande", Verdana, sans-serif;
+			font-size: 35px;
+			position: absolute;
+			top: 330px;
+			-webkit-animation-duration: 0.5s;
+			@include animationSettings;
+			@include text-shadow(rgba(0,0,0,0.5) 0 3px 3px);
+			#shotTitle{
+				font-weight: bold;
+				text-overflow: ellipsis;
+				-webkit-animation-duration: 0.25s;
+				@include animationSettings;
+			}
+			#shotPlayer{
+				margin-top: 5px;
+				font-size:25px;
+				-webkit-animation-duration: 1s;
+				-webkit-animation-delay: 3s;
+				@include animationSettings;
+			}
+		}
+
 		#commentsContainer{
 			z-index: 0;
-			position: absolute;
-			top: 500px;
+			position: fixed;
+			top: 50px;
+			height: $deviceHeight - 50px;
 			-webkit-animation-duration: 0.15s;
 			@include animationSettings;
 		}
@@ -167,8 +158,7 @@ body{
 			@include box-shadow(darken(#ffbb7f, 50%) 0 1px 0 inset,  rgba(0,0,0,0.5) 0 10px 10px inset);
 			//@include box-shadow($boxShadow1, $boxShadow2, $boxShadow3, $boxShadow4, $boxShadow5);
 			width: $deviceWidth;
-			overflow-x: hidden;
-			height: 250px;
+			height: $deviceHeight - 50px;
 			overflow-y: scroll;
 			overflow-x: hidden;
 			-webkit-overflow-scrolling: touch;
@@ -180,16 +170,17 @@ body{
 				font-family: Helvetica, Arial, "Lucida Grande", Verdana, sans-serif;
 				font-size: 50px;
 				font-weight: bold;
-				width: 100%;
+				width: $deviceWidth;
 				text-align: center;
-				margin-top: 100px;				
+				margin-top: 75px;				
 				color: rgba(40,40,40,1);
 				@include text-shadow(rgba(255,255,255,0.25) 0 1px 0, rgba(0,0,0,0.5) 0 -1px 0);
 			}
 
 			div.comment{
-				width: 610px;
+				width: $deviceWidth;
 				padding: 15px;
+				overflow-x: hidden;
 				height: auto;
 				font-family: Helvetica, Arial, "Lucida Grande", Verdana, sans-serif;
 				font-size: 15px;
@@ -208,7 +199,7 @@ body{
 					@include box-shadow(rgba(255,255,255,0.3) 0 1px 0, rgba(255,255,255,0.3) 0 -1px 0,rgba(0,0,0,0.5) 0 2px 1px inset, rgba(0,0,0,0.5) 0 -2px 1px inset);
 				}
 				&:last-child{
-					padding-bottom: 15px;
+					padding-bottom: 150px;
 				}
 
 				img.commenterAvatar{
@@ -229,9 +220,10 @@ body{
 				}
 				p.commentBody{
 					font-size: 20px;
-					width: 495px;
-					padding-right: 15px;
+					width: 800px;
+					padding-right: 25px;
 					margin-bottom: 10px;
+					margin-right: 30px;
 					float: right;
 					line-height: 1.3em;
 					font-weight: normal;
@@ -263,7 +255,7 @@ body{
 			position: absolute;
 			top: 0;
 			left: $deviceWidth;
-			z-index: 6;
+			z-index: 16;
 			background-image: url("../img/floorBG.png");
 			background-position: center;
 			overflow-y: hidden;
@@ -272,22 +264,8 @@ body{
 			@include animationSettings;
 			@include box-shadow(rgba(0,0,0,0.5) 0 0 5px);
 
-			#streamTitle{	
-				position: absolute;
-				top: 25px;
-				left: 50%;
-				width: $deviceWidth;
-				margin-left: -($deviceWidth/2);
-				font-family: Ballpark;
-				//width: $deviceWidth;
-				text-align: center;
-				font-size: 65px;
-				color: lighten($dribbblePink, 5%);
-				@include text-shadow(	rgba(0,0,0,0.5) 0 6px 5px, 
-										lighten($dribbblePink, 25%) 0 -1px 0,
-										darken($dribbblePink, 25%) 0 -2px 0,
-										darken($dribbblePink, 25%) 0 -3px 0,
-										darken($dribbblePink, 25%) 0 -4px 0);
+			#streamTitle{
+				display: none;
 			}
 
 			#shotsStream{
@@ -296,7 +274,7 @@ body{
 				height: $deviceHeight - 150px;
 				max-height: $deviceHeight - 150px;
 				padding-bottom: 200px;
-				margin-top: 100px;
+				padding-left: 45px;
 			}
 			a.streamLink{
 				text-decoration: none;
@@ -310,12 +288,12 @@ body{
 				background-position: center top;
 				background-size: contain;
 				float: left;
-				margin: 6px;
+				margin: 10px;
 				@include box-shadow($imgDropShadow, $imgBorder);
 				border-radius: 5px;
 				font-family: Helvetica, Arial, "Lucida Grande", Verdana, sans-serif;
 				font-weight: bold;
-				font-size: 14px;
+				font-size: 13px;
 				color: $dribbblePink;
 				text-decoration: none;
 				@include text-shadow(rgba(255,255,255,0.5) 0 1px 0);
@@ -337,27 +315,24 @@ body{
 			}
 		}
 
+
 		#buttonbar{
 			z-index: 50 !important;
 			width: $deviceWidth;
 			height: 97px;
-			position: fixed;
-			bottom: 0;
+			position: fixed !important;
+			bottom: 0 !important;
 			background-color: $dribbbleGrey;
 			@include box-shadow(lighten($dribbbleGrey, 15%) 0 1px 0 inset, rgba(0,0,0,0.35) 0 -5px 10px);
 			@include background(linear-gradient($dribbbleGrey, darken($dribbbleGrey,10%)));
 			
 			.tabBarButton{
-				width: 85px;
+				width: 150px;
 				height: 85px;
 				margin-top: 5px;
 				background: none;
-				-webkit-appearance: none;
 				border: none;
-				text-align: center;
-				font-family: Helvetica, Arial, "Lucida Grande", Verdana, sans-serif;
-				font-size: 20px;
-				
+				-webkit-appearance: none;
 			}
 
 			#mainPageControls{
@@ -384,14 +359,13 @@ body{
 			}
 
 			#backButton{
-				$buttonSize: 140px;
+				$buttonSize: 150px;
 				position: absolute;
 				left: 50%;
 				margin-left: -($buttonSize/2);
 				z-index:6;
 				width: $buttonSize;
 				height: $buttonSize;
-				-webkit-appearance: none;
 				@include animationSettings;
 				-webkit-animation-duration: 0.3s;
 				bottom: -170px;
@@ -422,8 +396,9 @@ body{
 			#toggleShotCommentsButton{
 				position: absolute;
 				left: 50%;
-				margin-left: -200px;
-				font-weight: bold;
+				margin-left: -275px;
+				text-align: center;
+				font-family: Helvetica, Arial, "Lucida Grande", Verdana, sans-serif;
 				font-size: 25px;
 				color: darken($dribbblePink, 25%);
 				@include text-shadow(rgba(0,0,0,0.6) 0 -1px 0, rgba(255,255,255,0.6) 0 1px 0);
@@ -447,11 +422,11 @@ body{
 					background-image: url("../img/profile_active.png");
 				}
 			}
-			
+
 			#popularStreamButton{
 				position: absolute;
 				left: 50%; 
-				margin-left: 215px;
+				margin-left: 290px;
 				z-index: 3;
 				background-image: url("../img/popular.png");
 				background-repeat: no-repeat;
@@ -460,10 +435,11 @@ body{
 					background-image: url("../img/popular_active.png");
 				}
 			}
+
 			#latestStreamButton{
 				position: absolute;
 				left: 50%; 
-				margin-left: -300px;
+				margin-left: -450px;
 				background-image: url("../img/latest.png");
 				background-repeat: no-repeat;
 				background-position: center center;
@@ -472,11 +448,13 @@ body{
 				}
 			}
 		}
+		
 		#playerProfile{
 			position: fixed;
+			top: $deviceHeight + 40px;
 			height: 900px;
 			width: $deviceWidth - 20px;
-			bottom: -920px;
+			bottom: -900px;
 			left: 10px;
 			background-color: rgba(0,0,0,0.8);
 			@include border-radius(5px);
@@ -514,16 +492,22 @@ body{
 			}
 
 			#playerProfileShots{
-				margin-top: 100px;
+				margin-top: 95px;
+				height: 318px;
+				overflow-y: hidden;
+				margin-left: 35px;
 
 				.shotPreview{
 					width: 200px;
 					height: 150px;
-					margin: 3px;
+					margin-bottom: 5px;
+					margin-right: 20px;
 					border-radius: 5px;
+					border: 1px solid rgba(255,255,255,0.3);
 				}
 			}
 		}
+
 		#noConnectionModal{
 			display: none;
 			width: 100%;
@@ -575,6 +559,6 @@ body{
 
 				}
 			}
-		}	
+		}
 	}
 }

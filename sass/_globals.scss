@@ -1,0 +1,17 @@
+$imgDropShadow: rgba(0,0,0,0.5) 0 10px 10px;
+$imgBorder: rgba(255,255,255,1) 0 0px 3px 0 inset;
+$dribbblePink: #ea4c88;
+$dribbbleGrey: #333;
+
+$boxShadow1: rgba(255,255,255,0.33) 0 1px 0;
+$boxShadow2: rgba(0,0,0,0.5) 0 10px 10px inset;
+$boxShadow3: rgba(0,0,0,0.5) 0 -5px 10px inset;
+$boxShadow4: rgba(0,0,0,0.5) 0 0 10px 5px;
+$boxShadow5: rgba(255,255,255,0.33) 0 -1px 0;
+
+@mixin animationSettings{
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-play-state: running;
+	-webkit-animation-fill-mode: both;
+}

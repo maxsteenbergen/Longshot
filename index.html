@@ -1,36 +1,93 @@
 <!DOCTYPE html>
-<html manifest="longshot.appcache">
+<html>
 <head>
 	<title>Longshot</title>
 	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="viewport" content = "width = 640, initial-scale = 0.5, user-scalable = no">
+	<meta name="viewport" content="initial-scale = 0.5, maximum-scale=1, user-scalable = no">
 	<meta charset="utf-8">
 	<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon.png">
-	<!--<script type="text/javascript" src="js/jquery.js"></script>-->
-	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<link rel="apple-touch-startup-image" sizes="640x920" href="img/startupscreen.png">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<!--<script type="text/javascript" src="js/swipe.js"></script>-->
 	<script type="text/javascript" src="js/functions.js"></script>
-	<link rel="stylesheet" type="text/css" href="stylesheets/screen.css">
+	<link rel="stylesheet" media="screen" type="text/css" href="stylesheets/promo.css">
+	<link rel="stylesheet" media="screen and (orientation: portrait)" type="text/css" href="stylesheets/screen.css">
+	<link rel="stylesheet" media="screen and (orientation: landscape)" type="text/css" href="stylesheets/landscape.css">
 </head>
 	
-<body onload="init();">
-	<div id="container">
+<body onload="init();" onorientationchange="boo();">
+	<div id="promo">
+		<img src="img/cloud.png" id="cloud">
 		<h1 id="logotype">Longshot</h1>
-		<div id="shotContainer">
+		<div id="promoBall"></div>
+		<div id="installInstruction">
+			<img id="phone" src="img/phone.png">
+			<h3>Add to<br>Home Screen</h3>
+		</div>
+	</div>
+
+	<div id="container">
+	
+		<!--<h1 id="logotype">Longshot</h1>-->
+		<div id="shotContainer" class="face">
+			<h1 id="logoType">Longshot</h1>
+		
+			<div id="imageContainer">
+		
+				<img id="background_top" src="img/floorBG_top.png">
+				<img id="background_bottom" src="img/floorBG_bottom.png">
+
+				<a id="tweetButton" target="_blank"></a>
+				<a id="fbButton" target="_blank"></a>
+				
 				<a id="shotImageLink" href="" alt="Open shot on Dribbble">	
+					<img id="spinner" src="img/spinner.png">
 					<div id="shotImage"></div>
 				</a>
-			<hgroup>
-				<h1 id="shotTitle"></h1>
-				<h2 id="shotPlayer"></h2>
-				<h3 id="shotID"></h3>
-			</hgroup>
-			<section id="shotComments">
-			</section>
+				<hgroup id="titleAndName">
+					<h1 id="shotTitle"></h1>
+					<h2 id="shotPlayer"></h2>
+				</hgroup>
+			</div>
+
+			<div id="commentsContainer">
+				<section id="shotComments">
+				</section>
+			</div>
+		
 		</div>
+
+
+		<div id="shotsStreamPage">
+			<h2 id="streamTitle"></h2>
+			<div id="shotsStream"></div>
+		</div>
+
 		<nav id="buttonbar">
-			<div id="toggleShotCommentsButton" onclick="toggleShotComments();"></div>
-			<img id="getShotButton" onclick="getShot();" src="img/dribbble_ball_1024.png">
-		</nav>		
+
+			<div id="mainPageControls">
+				<button id="getShotButton" onclick="getShot();"></button>
+				<div id="shotButtonShadow"></div>
+				<button class="tabBarButton" id="toggleShotCommentsButton" onclick="toggleShotComments();"></button>
+				<button class="tabBarButton" id="profileButton" onclick="toggleProfile();"></button>
+			</div>  
+			<button class="tabBarButton" id="popularStreamButton" onclick="getStreamShots('popular')"></button>
+			<button class="tabBarButton" id="latestStreamButton" onclick="getStreamShots('everyone')"></button>
+			<button id="backButton" onclick="togglePages('main');"></button>
+		</nav>
+
+		<div id="playerProfile"></div>
+
+		<div id="noConnectionModal">
+			<div id="connectionInstruction" onclick="reloadGetShot();">
+				<img id="noNetworkIcon" src="img/noconnection.png">
+				<h3>No connection</h3>
+				<h4>tap to retry</h4>
+			</div>
+		</div>
+
 	</div>
+
+
 </body>
 </html>
